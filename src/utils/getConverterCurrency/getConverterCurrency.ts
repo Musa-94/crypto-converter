@@ -1,3 +1,5 @@
+import {config} from '../../config';
+
 interface Params {
     to: string
     from: string
@@ -15,30 +17,15 @@ export const getConverterCurrency = async (params: Params): Promise<ReturnResult
     }
 
     try {
-        return await fetch('https://api.letsexchange.io/api/v1/info?float=true', {
+        return await fetch(config.API_CONVERT, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                amount: params.amount,
-                from: params.from,
-                promocode: "",
-                to: params.to
-            }),
+            body: JSON.stringify(params),
         })
             .then(res => res.json())
             .then(res => res)
-        // result = await fetch(config.API_CONVERT, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(params),
-        // })
-        //     .then(res => res.json())
-        //     .then(res => res)
-        //     .catch(err => console.log('err', err))
     } catch (e) {
         console.log('e', e)
     }
