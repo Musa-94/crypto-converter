@@ -17,7 +17,7 @@ const Currency = (props: CurrencyProps): JSX.Element => {
             >
                 <option className="currency-option">BTC</option>
                 <option className="currency-option">ETH</option>
-                <option className="currency-option">USDT</option>
+                <option className="currency-option">LTC</option>
             </select>
         </div>
     )
