@@ -13,7 +13,7 @@ interface ReturnResult {
 
 export const getConverterCurrency = async (params: Params): Promise<ReturnResult> => {
     let result = {
-        amount: '111'
+        amount: '0'
     }
 
     try {

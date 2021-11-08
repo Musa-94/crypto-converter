@@ -9,7 +9,7 @@ const Main = (): JSX.Element => {
     const [converterCurrencyValue, setConverterCurrencyValue] = useState<string>('0')
 
     const [currency, setCurrency] = useState<string>('BTC')
-    const [converterCurrency, setConverterCurrency] = useState<string>('USDT')
+    const [converterCurrency, setConverterCurrency] = useState<string>('ETH')
 
     const handleCurrentCurrency = useCallback((event: ChangeEvent<HTMLSelectElement>) => {
         setCurrency(event.target.value)
