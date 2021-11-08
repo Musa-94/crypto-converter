@@ -26,7 +26,8 @@ const Main = (): JSX.Element => {
         const params = {
             to: converterCurrency,
             from: currency,
-            amount: converterCurrencyValue,
+            amount: currencyValue,
+            promocode: ''
         }
 
         const res = await getConverterCurrency(params)

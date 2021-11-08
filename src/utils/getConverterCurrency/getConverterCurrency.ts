@@ -1,5 +1,3 @@
-import {config} from '../../config'
-
 interface Params {
     to: string
     from: string
@@ -13,20 +11,34 @@ interface ReturnResult {
 
 export const getConverterCurrency = async (params: Params): Promise<ReturnResult> => {
     let result = {
-        amount: '0'
+        amount: '111'
     }
 
     try {
-        result = await fetch(config.API_CONVERT, {
+        return await fetch('https://api.letsexchange.io/api/v1/info?float=true', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({params}),
+            body: JSON.stringify({
+                amount: params.amount,
+                from: params.from,
+                promocode: "",
+                to: params.to
+            }),
         })
             .then(res => res.json())
             .then(res => res)
-            .catch(err => console.log('err', err))
+        // result = await fetch(config.API_CONVERT, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(params),
+        // })
+        //     .then(res => res.json())
+        //     .then(res => res)
+        //     .catch(err => console.log('err', err))
     } catch (e) {
         console.log('e', e)
     }
