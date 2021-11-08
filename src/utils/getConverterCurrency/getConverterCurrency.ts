@@ -21,13 +21,12 @@ export const getConverterCurrency = async (params: Params): Promise<ReturnResult
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                credentials: 'include',
             },
             body: JSON.stringify({params}),
         })
-            .then((res: { json: () => any; }) => res.json())
-            .then((res: any) => res)
-            .catch((err: any) => console.log('err', err))
+            .then(res => res.json())
+            .then(res => res)
+            .catch(err => console.log('err', err))
     } catch (e) {
         console.log('e', e)
     }
